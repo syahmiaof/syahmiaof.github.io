@@ -3,24 +3,103 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio Syahmi</title>
+  <title>Syahmi — Cloud Computing Portfolio</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <h1>Syahmi</h1>
-    <p>Cloud Computing Student | Future Cloud Expert ☁️</p>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#">Syahmi</a>
+      <nav class="nav" id="main-nav">
+        <a href="#home">Home</a>
+        <a href="#projects">Projects</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <button id="theme-toggle" aria-label="Toggle theme">🌙</button>
+        <button id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">☰</button>
+      </div>
+    </div>
   </header>
 
-  <section>
-    <h2>About Me</h2>
-    <p>Hi! I'm Syahmi from Taiping. Currently studying Diploma in Cloud Computing at IKM Besut. Passionate about tech and AI.</p>
-  </section>
+  <main>
+    <section id="home" class="hero">
+      <div class="container hero-inner">
+        <div>
+          <h1>Hi, I'm <span class="accent">Syahmi</span></h1>
+          <p class="lead">Diploma Student in Cloud Computing • AI & Cloud Enthusiast</p>
+          <p class="cta-row">
+            <a class="btn" href="#projects">See Projects</a>
+            <button class="btn ghost" onclick="contactMe()">Say Hello 👋</button>
+          </p>
+        </div>
+        <div class="hero-illustration" aria-hidden="true">
+          <!-- Placeholder illustration; replace with image if available -->
+          <div class="placeholder-avatar">☁️</div>
+        </div>
+      </div>
+    </section>
 
-  <section>
-    <h2>Contact</h2>
-    <button onclick="contactMe()">Say Hello 👋</button>
-  </section>
+    <section id="projects" class="section">
+      <div class="container">
+        <h2>Projects</h2>
+        <p class="muted">A few highlights — click to learn more</p>
+        <div class="projects-grid">
+          <article class="card">
+            <h3>Cloud Demo</h3>
+            <p>Brief description of a cloud deployment project.</p>
+            <a class="link" href="#">View</a>
+          </article>
+          <article class="card">
+            <h3>AI Chatbot</h3>
+            <p>Prototype of a simple AI assistant.</p>
+            <a class="link" href="#">View</a>
+          </article>
+          <article class="card">
+            <h3>Coursework</h3>
+            <p>Selected assignments and labs.</p>
+            <a class="link" href="#">View</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <div class="container">
+        <h2>About Me</h2>
+        <p>Hi! I'm Syahmi from Taiping. Currently studying Diploma in Cloud Computing at IKM Besut. I'm passionate about cloud technologies, automation, and applying AI for helpful tools.</p>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <div class="container">
+        <h2>Contact</h2>
+        <p>If you'd like to get in touch, send an email or reach out on social media.</p>
+        <form class="contact-form" action="mailto:example@example.com" method="get" enctype="text/plain">
+          <label>
+            Your email
+            <input type="email" name="email" placeholder="you@example.com" required>
+          </label>
+          <label>
+            Message
+            <textarea name="message" placeholder="Hi Syahmi…" required></textarea>
+          </label>
+          <div class="form-actions">
+            <button type="submit" class="btn">Send</button>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="year"></span> Syahmi — Cloud Computing Student</p>
+    </div>
+  </footer>
 
   <script src="script.js"></script>
 </body>
