@@ -45,12 +45,17 @@ body{
 .hero-title{font-size:2.4rem;margin:0;color:var(--text)}
 .blink{color:var(--neon-2);margin-left:6px}
 .hero-sub{color:var(--muted);margin-top:10px}
+.hero-name{font-family: 'Orbitron', sans-serif;font-size:3rem;letter-spacing:0.5px;color:#e9fbff;font-weight:700;text-shadow:0 6px 30px rgba(0,163,255,0.12)}
+.hero-role{font-weight:500;color:rgba(207,233,255,0.9);font-size:1.05rem;margin-left:8px}
 .hero-cta{margin-top:18px;display:flex;gap:12px}
 .skill-pills{list-style:none;padding:0;margin:12px 0 0;display:flex;gap:8px;flex-wrap:wrap}
 .skill-pills li{background:rgba(255,255,255,0.02);padding:6px 10px;border-radius:999px;font-size:0.9rem;color:var(--text)}
 
 .btn{background:linear-gradient(90deg,var(--neon-3),var(--neon-2));color:#04122b;padding:10px 16px;border-radius:10px;border:0;text-decoration:none;cursor:pointer;font-weight:600;box-shadow:0 10px 30px rgba(0,163,255,0.12)}
 .btn.ghost{background:transparent;color:var(--neon-3);border:1px solid rgba(155,127,255,0.12)}
+
+.btn.whatsapp{background:linear-gradient(90deg,#00c853,#00a3ff);box-shadow:0 12px 40px rgba(0,160,120,0.08)}
+.contact-ways{display:flex;gap:12px;margin:12px 0 18px}
 
 /* Hero visual: 3D-ish planet */
 .hero-visual{display:flex;justify-content:center;align-items:center}
@@ -85,6 +90,7 @@ body{
 /* About */
 .about-inner{display:grid;grid-template-columns:220px 1fr;gap:28px;align-items:center}
 .profile-photo{width:200px;height:200px;border-radius:16px;object-fit:cover;border:4px solid rgba(255,255,255,0.04);box-shadow:0 16px 40px rgba(0,0,0,0.6)}
+/* removed duplicate background rule to avoid syntax errors */
 .about-text h3{margin-top:14px}
 .tech-list{list-style:none;padding:0;margin:8px 0 0;color:var(--text)}
 

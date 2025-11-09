@@ -73,6 +73,25 @@ document.addEventListener('DOMContentLoaded', ()=>{
 
   // Initialize starfield
   initStarfield();
+
+  // Hero planet parallax (mouse)
+  const heroWrap = document.querySelector('.planet-wrap');
+  if(heroWrap){
+    const planet = heroWrap.querySelector('.planet');
+    const moon = heroWrap.querySelector('.moon');
+    heroWrap.addEventListener('mousemove', (ev)=>{
+      const r = heroWrap.getBoundingClientRect();
+      const x = (ev.clientX - r.left) / r.width - 0.5; // -0.5..0.5
+      const y = (ev.clientY - r.top) / r.height - 0.5;
+      const rx = y * 8; const ry = x * -12;
+      if(planet) planet.style.transform = `translate(-50%,-50%) rotateX(${rx}deg) rotateY(${ry}deg) translateZ(10px)`;
+      if(moon) moon.style.transform = `translateZ(30px) translate(${x * 18}px, ${y * 10}px)`;
+    });
+    heroWrap.addEventListener('mouseleave', ()=>{
+      if(planet) planet.style.transform = '';
+      if(moon) moon.style.transform = '';
+    });
+  }
 });
 
 function handleTilt(e){
