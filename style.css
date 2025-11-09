@@ -1,4 +1,122 @@
 :root{
+  --bg: #030416;
+  --card: rgba(255,255,255,0.02);
+  --text: #cfe9ff;
+  --muted: #9fb0d9;
+  --neon-1: #6ee7ff; /* cyan */
+  --neon-2: #9b7fff; /* violet */
+  --neon-3: #00a3ff; /* blue */
+  --glass: rgba(255,255,255,0.04);
+  --radius: 12px;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+html{scroll-behavior:smooth}
+body{
+  font-family: 'Poppins', sans-serif;
+  margin:0;
+  background:linear-gradient(180deg,#010214 0%,#061226 70%);
+  color:var(--text);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  overflow-x:hidden;
+}
+
+.container{max-width:1100px;margin:0 auto;padding:0 20px}
+
+/* Header */
+.site-header{background:transparent;border-bottom:1px solid rgba(255,255,255,0.03);backdrop-filter: blur(6px);position:fixed;top:0;left:0;width:100%;z-index:60}
+.header-inner{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+.brand{font-weight:700;color:var(--text);text-decoration:none;font-size:1.15rem}
+.nav{display:flex;gap:12px}
+.nav a{color:var(--muted);text-decoration:none;padding:8px 10px;border-radius:8px}
+.nav a:hover{color:var(--neon-3)}
+.header-actions{display:flex;align-items:center;gap:8px}
+.nav-toggle{display:none;background:transparent;border:0;font-size:1.25rem;cursor:pointer;color:var(--muted)}
+#theme-toggle{background:transparent;border:0;font-size:1.25rem;cursor:pointer;color:var(--muted)}
+
+/* Starfield canvas sits behind everything */
+#starfield{position:fixed;inset:0;z-index:0;pointer-events:none}
+
+/* Hero */
+.hero{padding:110px 0 80px;position:relative;z-index:2;overflow:visible}
+.hero-inner{display:grid;grid-template-columns:1fr 360px;gap:30px;align-items:center}
+.hero-title{font-size:2.4rem;margin:0;color:var(--text)}
+.blink{color:var(--neon-2);margin-left:6px}
+.hero-sub{color:var(--muted);margin-top:10px}
+.hero-cta{margin-top:18px;display:flex;gap:12px}
+.skill-pills{list-style:none;padding:0;margin:12px 0 0;display:flex;gap:8px;flex-wrap:wrap}
+.skill-pills li{background:rgba(255,255,255,0.02);padding:6px 10px;border-radius:999px;font-size:0.9rem;color:var(--text)}
+
+.btn{background:linear-gradient(90deg,var(--neon-3),var(--neon-2));color:#04122b;padding:10px 16px;border-radius:10px;border:0;text-decoration:none;cursor:pointer;font-weight:600;box-shadow:0 10px 30px rgba(0,163,255,0.12)}
+.btn.ghost{background:transparent;color:var(--neon-3);border:1px solid rgba(155,127,255,0.12)}
+
+/* Hero visual: 3D-ish planet */
+.hero-visual{display:flex;justify-content:center;align-items:center}
+.planet-wrap{position:relative;width:260px;height:260px;perspective:900px}
+.planet{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:180px;height:180px;border-radius:50%;background:radial-gradient(circle at 30% 20%,var(--neon-1), var(--neon-2) 40%, #06213a 80%);box-shadow:0 0 40px rgba(155,127,255,0.14), inset 0 -20px 40px rgba(0,0,0,0.5);transform-style:preserve-3d;animation:planet-rotate 18s linear infinite}
+.moon{position:absolute;right:28px;top:18px;width:44px;height:44px;border-radius:50%;background:linear-gradient(180deg,#dfeeff,#bfd4ff);box-shadow:0 6px 18px rgba(11,116,255,0.08);transform:translateZ(60px) rotate(0)}
+.planet-orbit{position:absolute;inset:0;border-radius:50%;box-shadow:0 0 0 1px rgba(155,127,255,0.03) inset}
+@keyframes planet-rotate{from{transform:rotateY(0deg)}to{transform:rotateY(360deg)}}
+
+/* Sections */
+.section{padding:48px 0}
+.muted{color:var(--muted)}
+
+/* Projects grid and cards */
+.projects-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:18px}
+.card{background:var(--card);padding:18px;border-radius:14px;border:1px solid rgba(255,255,255,0.03);box-shadow:0 14px 40px rgba(0,0,0,0.6);color:var(--text);transform-style:preserve-3d;transition:transform .28s cubic-bezier(.2,.9,.3,1),box-shadow .28s ease}
+.project-card{cursor:pointer}
+.project-card:focus,.project-card:hover{transform:translateY(-8px) scale(1.02);box-shadow:0 28px 60px rgba(0,163,255,0.12)}
+.card h3{margin:0 0 8px 0}
+.card p{color:rgba(207,233,255,0.9)}
+.card-inner{transform:translateZ(30px)}
+.card-actions{margin-top:12px}
+.link{color:var(--neon-3);text-decoration:none;font-weight:600}
+
+/* Badges */
+.badges{display:flex;gap:14px;flex-wrap:wrap;margin-top:14px}
+.badge{display:flex;align-items:center;gap:12px;background:linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:12px;border-radius:12px;border:1px solid rgba(255,255,255,0.03);box-shadow:0 10px 30px rgba(0,0,0,0.6)}
+.badge-icon{width:48px;height:48px;border-radius:10px;background:linear-gradient(135deg,var(--neon-1),var(--neon-2));display:flex;align-items:center;justify-content:center;font-size:20px}
+.badge-info strong{display:block;color:var(--text)}
+.badge-info small{color:var(--muted)}
+
+/* About */
+.about-inner{display:grid;grid-template-columns:220px 1fr;gap:28px;align-items:center}
+.profile-photo{width:200px;height:200px;border-radius:16px;object-fit:cover;border:4px solid rgba(255,255,255,0.04);box-shadow:0 16px 40px rgba(0,0,0,0.6)}
+.about-text h3{margin-top:14px}
+.tech-list{list-style:none;padding:0;margin:8px 0 0;color:var(--text)}
+
+/* Contact */
+.contact-form{max-width:640px;margin:10px auto 0}
+.contact-form label{display:block;margin-bottom:12px;color:var(--text)}
+.contact-form input,.contact-form textarea{width:100%;padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);margin-top:6px;background:rgba(255,255,255,0.02);color:var(--text)}
+.form-actions{text-align:right;display:flex;gap:10px;justify-content:flex-end}
+
+.site-footer{border-top:1px solid rgba(255,255,255,0.03);padding:18px 0;text-align:center;color:rgba(207,233,255,0.7);position:relative;z-index:2}
+
+/* Responsive */
+@media (max-width:1000px){
+  .hero-inner{grid-template-columns:1fr}
+  .projects-grid{grid-template-columns:repeat(2,1fr)}
+  .about-inner{grid-template-columns:1fr}
+}
+@media (max-width:520px){
+  .nav{display:none}
+  .nav-toggle{display:inline-block}
+  .projects-grid{grid-template-columns:1fr}
+  .planet-wrap{display:none}
+  .profile-photo{width:140px;height:140px}
+}
+
+/* Dark-specific tweaks when theme toggled */
+body.dark{background:#000318}
+body.dark .card{box-shadow:0 20px 60px rgba(0,0,0,0.85)}
+
+/* Utilities */
+.hidden{display:none !important}
+:root{
   --bg: #f3f4f6;
   --card: #ffffff;
   --text: #111827;

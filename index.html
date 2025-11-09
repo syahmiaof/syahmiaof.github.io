@@ -9,12 +9,18 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  </head>
+<body>
+  <!-- Starfield canvas (particles) -->
+  <canvas id="starfield" aria-hidden="true"></canvas>
+
   <header class="site-header">
     <div class="container header-inner">
-      <a class="brand" href="#">Syahmi</a>
-      <nav class="nav" id="main-nav">
+      <a class="brand" href="#home">Syahmi</a>
+      <nav class="nav" id="main-nav" aria-label="Main navigation">
         <a href="#home">Home</a>
         <a href="#projects">Projects</a>
+        <a href="#certificates">Certificates</a>
         <a href="#about">About</a>
         <a href="#contact">Contact</a>
       </nav>
@@ -28,17 +34,27 @@
   <main>
     <section id="home" class="hero">
       <div class="container hero-inner">
-        <div>
-          <h1>Hi, I'm <span class="accent">Syahmi</span></h1>
-          <p class="lead">Diploma Student in Cloud Computing • AI & Cloud Enthusiast</p>
-          <p class="cta-row">
-            <a class="btn" href="#projects">See Projects</a>
+        <div class="hero-content">
+          <h1 class="hero-title">Syahmi — Cloud Engineer<span class="blink">_</span></h1>
+          <p class="hero-sub">Building resilient cloud systems, AI tooling, and scalable infrastructure.</p>
+          <div class="hero-cta">
+            <a class="btn" href="#projects">Explore Projects</a>
             <button class="btn ghost" onclick="contactMe()">Say Hello 👋</button>
-          </p>
+          </div>
+          <ul class="skill-pills">
+            <li>Cloud</li>
+            <li>DevOps</li>
+            <li>Containers</li>
+            <li>AI</li>
+          </ul>
         </div>
-        <div class="hero-illustration" aria-hidden="true">
-          <!-- Placeholder illustration; replace with image if available -->
-          <div class="placeholder-avatar">☁️</div>
+
+        <div class="hero-visual">
+          <div class="planet-wrap">
+            <div class="planet"></div>
+            <div class="moon"></div>
+            <div class="planet-orbit"></div>
+          </div>
         </div>
       </div>
     </section>
@@ -46,39 +62,89 @@
     <section id="projects" class="section">
       <div class="container">
         <h2>Projects</h2>
-        <p class="muted">A few highlights — click to learn more</p>
+        <p class="muted">Interactive highlights — hover to explore</p>
         <div class="projects-grid">
-          <article class="card">
-            <h3>Cloud Demo</h3>
-            <p>Brief description of a cloud deployment project.</p>
-            <a class="link" href="#">View</a>
+          <article class="card project-card" tabindex="0">
+            <div class="card-inner">
+              <h3>Cloud Deployment</h3>
+              <p>Automated CI/CD and scalable infra on public cloud.</p>
+              <div class="card-actions"><a class="link" href="#">Details</a></div>
+            </div>
           </article>
-          <article class="card">
-            <h3>AI Chatbot</h3>
-            <p>Prototype of a simple AI assistant.</p>
-            <a class="link" href="#">View</a>
+
+          <article class="card project-card" tabindex="0">
+            <div class="card-inner">
+              <h3>AI Assistant</h3>
+              <p>Conversational assistant integrated with cloud functions.</p>
+              <div class="card-actions"><a class="link" href="#">Details</a></div>
+            </div>
           </article>
-          <article class="card">
-            <h3>Coursework</h3>
-            <p>Selected assignments and labs.</p>
-            <a class="link" href="#">View</a>
+
+          <article class="card project-card" tabindex="0">
+            <div class="card-inner">
+              <h3>Monitoring Dashboard</h3>
+              <p>Real-time metrics, alerts and cost optimization tooling.</p>
+              <div class="card-actions"><a class="link" href="#">Details</a></div>
+            </div>
           </article>
         </div>
       </div>
     </section>
 
-    <section id="about" class="section">
+    <section id="certificates" class="section">
       <div class="container">
-        <h2>About Me</h2>
-        <p>Hi! I'm Syahmi from Taiping. Currently studying Diploma in Cloud Computing at IKM Besut. I'm passionate about cloud technologies, automation, and applying AI for helpful tools.</p>
+        <h2>Certificates</h2>
+        <p class="muted">Professional badges and course certificates</p>
+        <div class="badges">
+          <div class="badge">
+            <div class="badge-icon">☁️</div>
+            <div class="badge-info">
+              <strong>Cloud Fundamentals</strong>
+              <small>Issued: 2025</small>
+            </div>
+          </div>
+          <div class="badge">
+            <div class="badge-icon">🔒</div>
+            <div class="badge-info">
+              <strong>Security Essentials</strong>
+              <small>Issued: 2025</small>
+            </div>
+          </div>
+          <div class="badge">
+            <div class="badge-icon">🤖</div>
+            <div class="badge-info">
+              <strong>AI Integration</strong>
+              <small>Issued: 2024</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section about-section">
+      <div class="container about-inner">
+        <div class="profile">
+          <img class="profile-photo" src="assets/profile.jpg" alt="Syahmi profile photo">
+        </div>
+        <div class="about-text">
+          <h2>About Me</h2>
+          <p>Hi! I'm Syahmi from Taiping. I study Cloud Computing (Diploma) at IKM Besut. I design cloud-native solutions with a focus on reliability, automation and efficiency.</p>
+          <h3>Tech Skills</h3>
+          <ul class="tech-list">
+            <li>AWS • Azure • GCP</li>
+            <li>Docker • Kubernetes</li>
+            <li>Terraform • Ansible</li>
+            <li>Python • Bash • CI/CD</li>
+          </ul>
+        </div>
       </div>
     </section>
 
     <section id="contact" class="section">
       <div class="container">
         <h2>Contact</h2>
-        <p>If you'd like to get in touch, send an email or reach out on social media.</p>
-        <form class="contact-form" action="mailto:example@example.com" method="get" enctype="text/plain">
+        <p class="muted">Reach out for collaborations, internships, or questions.</p>
+        <form class="contact-form" id="contact-form" action="mailto:example@example.com" method="get" enctype="text/plain">
           <label>
             Your email
             <input type="email" name="email" placeholder="you@example.com" required>
@@ -89,6 +155,7 @@
           </label>
           <div class="form-actions">
             <button type="submit" class="btn">Send</button>
+            <button type="button" class="btn ghost" id="clear-form">Clear</button>
           </div>
         </form>
       </div>
@@ -97,7 +164,7 @@
 
   <footer class="site-footer">
     <div class="container">
-      <p>© <span id="year"></span> Syahmi — Cloud Computing Student</p>
+      <p>© <span id="year"></span> Syahmi — Cloud Engineer</p>
     </div>
   </footer>
 
